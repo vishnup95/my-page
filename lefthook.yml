@@ -1,0 +1,11 @@
+pre-commit:
+  parellel: true
+  commands:
+    lint:
+      run: pnpm exec eslint --ignore-path '.eslintignore' --fix {staged_files}
+      stage_fixed: true
+      interactive: true
+    format:
+      run: pnpm exec prettier --ignore-unknown  --cache --plugin-search-dir=. --write {staged_files}
+      stage_fixed: true
+      interactive: true
